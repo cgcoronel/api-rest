@@ -43,7 +43,8 @@ const getUrl = async (id) => {
  * @param {object} res response object.
  */
 const getFullUrl = async (fullUrl) => {
-  const data = await store.get('data');
+  let data = await store.get('data');
+  data = data ? data : [];
 
   const url = data.filter((d) => d.url === fullUrl);
 
